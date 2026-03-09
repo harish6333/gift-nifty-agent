@@ -1,1 +1,21 @@
-{"GTT": {"expiration": "2026-03-09T16:34:49Z"}, "marketData": {"lastUpdated": "2026-03-09T16:34:49Z"}}
+{
+    "nifty_to_bees_divisor": 89.5,
+    "nifty_prev_close": 24323,
+    "niftybees_prev_close": 277.25,
+    "gtts": [
+        {
+            "name": "GTT 1",
+            "trigger": 271.00,
+            "limit": 274.00,
+            "qty": 350,
+            "status": "triggered"
+        },
+        {
+            "name": "GTT 2",
+            "trigger": 264.00,
+            "limit": 267.00,
+            "qty": 200,
+            "status": "active"
+        }
+    ]
+}
