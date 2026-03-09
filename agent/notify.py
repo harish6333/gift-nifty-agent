@@ -1,22 +1,20 @@
 import requests
 
-class TelegramBot:
-    def __init__(self, token):
-        self.token = token
-        self.base_url = f'https://api.telegram.org/bot{token}/'
-
-    def send_message(self, chat_id, message):
-        url = self.base_url + 'sendMessage'
-        payload = {'chat_id': chat_id, 'text': message}
-        response = requests.post(url, data=payload)
-        return response.json()
-
-# Example usage
-if __name__ == '__main__':
-    bot_token = 'YOUR_BOT_TOKEN'
-    chat_id = 'YOUR_CHAT_ID'
-    message = 'Hello, this is a test message!'
-
-    bot = TelegramBot(bot_token)
-    result = bot.send_message(chat_id, message)
-    print(result)
+def send_telegram(bot_token, chat_id, message):
+    if not bot_token or not chat_id:
+        print("[Telegram] ERROR: Credentials not set.")
+        return False
+    try:
+        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+        payload = {"chat_id": chat_id, "text": message}
+        response = requests.post(url, json=payload, timeout=15)
+        data = response.json()
+        if data.get("ok"):
+            print("[Telegram] ✅ Message sent!")
+            return True
+        else:
+            print(f"[Telegram] ❌ Failed: {data.get('description')}")
+            return False
+    except Exception as e:
+        print(f"[Telegram] ❌ Error: {e}")
+        return False
