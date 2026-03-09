@@ -11,8 +11,8 @@ def analyze_gift_nifty(data, gtt_levels):
 
 def send_telegram_message(message):
     # Define your Telegram bot token and chat ID here
-    bot_token = 'YOUR_BOT_TOKEN'
-    chat_id = 'YOUR_CHAT_ID'
+    bot_token = '8256252960:AAE-VXi7gy3vLKYN8PPycv5h3roj-4mw4vY'
+    chat_id = '7277821533'
     url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
     payload = {'chat_id': chat_id, 'text': message}
     requests.post(url, data=payload)
